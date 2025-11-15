@@ -42,14 +42,13 @@ export default function ProductList() {
 
   return (
     <div className="max-w-7xl mx-auto px-4">
-      <div className="flex gap-4 mb-4 items-center">
-        <h1 className="text-2x1 font-bold">Фильтры</h1>
+      <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-4 sm:items-center">
         <select
           value={filter}
           onChange={(e) =>
             dispatch(setFilter((e.target.value as "all") || "favorites"))
           }
-          className="border rounded px-2 py-1"
+          className="border rounded px-2 py-1 w-full sm:w-auto"
         >
           <option value="all">Все</option>
           <option value="favorites">Избранные</option>
@@ -61,7 +60,7 @@ export default function ProductList() {
           onChange={(e) =>
             setMinPrice(e.target.value === "" ? "" : Number(e.target.value))
           }
-          className="border rounded px-2 py-1 w-24"
+          className="border rounded px-2 py-1 w-full sm:w-24"
         />
         <input
           type="number"
@@ -70,7 +69,7 @@ export default function ProductList() {
           onChange={(e) =>
             setMaxPrice(e.target.value === "" ? "" : Number(e.target.value))
           }
-          className="border rounded px-2 py-1 w-24"
+          className="border rounded px-2 py-1 w-full sm:w-24"
         />
 
         <input
@@ -78,11 +77,12 @@ export default function ProductList() {
           placeholder="Поиск..."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
-          className="border rounded px-2 py-1 flex-1 min-w-[200px]"
+          className="border rounded px-2 py-1 w-full sm:flex-1"
         />
         <Link
           href="/create-product"
-          className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition"
+          className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition
+           w-full sm:w-auto text-center"
         >
           Создать продукт
         </Link>
